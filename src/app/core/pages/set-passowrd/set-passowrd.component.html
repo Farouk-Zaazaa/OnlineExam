@@ -1,0 +1,42 @@
+
+
+<div class=" flex justify-content-center align-items-center h-full flex-column">
+
+    <form class="flex flex-column gap-4 w-6" [formGroup]="setPassForm" (ngSubmit)="setPass()">
+        <h3>Set a password</h3>
+        <input 
+        formControlName="password"
+        type="password" 
+        pInputText 
+        placeholder="Create Password"
+        variant="filled" 
+        style="padding: 10px;"/>
+        <input 
+        formControlName="rePass"
+        type="password" 
+        pInputText 
+        placeholder="Re-enter Password"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+
+
+        <!-- <p-password [toggleMask]="true" /> -->
+
+
+        @if(errorMsg){
+            <p class="bg-red-100 border-round text-center py-1">{{errorMsg}}</p>
+        }
+        @if(successMsg){
+            <p class="bg-green-100 border-round text-center py-1">{{successMsg}}</p>
+        }
+
+
+        <app-button classes="btn3 my-3" [text]="'sign in'" [disCondition]="setPassForm.invalid"></app-button>
+        <!-- <input formControlName="password"  type="password" placeholder="Password"> -->
+        <!-- <button class="btn3 cursor-pointer	">Sign in</button> -->
+    </form>
+
+
+
+</div>

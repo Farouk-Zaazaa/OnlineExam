@@ -1,0 +1,111 @@
+
+<div class=" flex justify-content-center align-items-center h-full flex-column">
+
+    <form class="flex flex-column gap-4 w-6" [formGroup]="registerForm" (ngSubmit)="register()">
+        <h3>Sign Up</h3>
+        <input 
+        formControlName="username"
+        type="text" 
+        pInputText 
+        placeholder="userName"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+        <input 
+        formControlName="firstName"
+        type="text" 
+        pInputText 
+        placeholder="firstName"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+        <input 
+        formControlName="lastName"
+        type="text" 
+        pInputText 
+        placeholder="LastName"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+        <input 
+        formControlName="email"
+        type="email" 
+        pInputText 
+        placeholder="Email"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+
+        <input 
+        formControlName="password"
+        type="password" 
+        pInputText 
+        placeholder="Password"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+        <input 
+        formControlName="rePassword"
+        type="password" 
+        pInputText 
+        placeholder="RePassword"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+        <input 
+        formControlName="phone"
+        type="tel" 
+        pInputText 
+        placeholder="Phone"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+        <p class="text-center">Already have an account <a href="/" >Login</a></p>
+
+        @if(registerForm.get("email")?.touched){
+            @if(registerForm.get("email")?.getError("required")){
+                <p class="bg-red-100 border-round text-center py-1">Email is required</p>
+            }
+            @if(registerForm.get("email")?.getError("pattern")){
+                <p class="bg-red-100 border-round text-center py-1">Email must be valid </p>
+            }
+        }
+        @if(registerForm.get("username")?.touched){
+            @if(registerForm.get("username")?.getError("required")){
+                <p class="bg-red-100 border-round text-center py-1">username is required</p>
+            }
+            @if(registerForm.get("username")?.getError("pattern")){
+                <p class="bg-red-100 border-round text-center py-1"> username should be character only with minlength 4 and maxlength 25 </p>
+            }
+        }
+
+        @if(registerForm.get("password")?.touched){
+            @if(registerForm.get("password")?.getError("required")){
+                <p class="bg-red-100 border-round text-center py-1">Password is required</p>
+            }
+            @if(registerForm.get("password")?.getError("pattern")){
+                <p class="bg-red-100 border-round text-center py-1">Password must be at least 6 characters </p>
+            }
+        }
+        @if(registerForm.get("rePassword")?.touched){
+            @if(registerForm.get("rePassword")?.getError("required")){
+                <p class="bg-red-100 border-round text-center py-1">rePassword is required</p>
+            }
+            @if(registerForm.get("rePassword")?.getError("pattern")){
+                <p class="bg-red-100 border-round text-center py-1">rePassword must be at least 6 characters </p>
+            }
+        }
+
+        @if(errorMsg){
+            <p class="bg-red-100 border-round text-center py-1">{{errorMsg}}</p>
+        }
+        @if(successMsg){
+            <p class="bg-green-100 border-round text-center py-1">{{successMsg}}</p>
+        }
+
+        <app-button classes="btn3 my-3" [text]="'Create Account'" [disCondition]="registerForm.invalid"  ></app-button>
+    </form>
+
+
+
+</div>

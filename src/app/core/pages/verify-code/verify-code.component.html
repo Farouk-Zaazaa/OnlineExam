@@ -1,0 +1,51 @@
+<!-- <form [formGroup]="verifyForm" (ngSubmit)="verifyCode()">
+    <input formControlName="resetCode" type="text" placeholder="code">
+    <button>Create Account</button>
+</form> -->
+
+<!-- <form [formGroup]="registerForm" (ngSubmit)="register()"> -->
+    <!-- <input formControlName="username" type="text" placeholder="userName"> -->
+    <!-- <input formControlName="firstName" type="text" placeholder="firstName"> -->
+    <!-- <input formControlName="lastName" type="text" placeholder="LastName"> -->
+    <!-- <input formControlName="email" type="email" placeholder="Email"> -->
+    <!-- <input formControlName="password" type="password" placeholder="Password"> -->
+    <!-- <input formControlName="rePassword" type="password" placeholder="RePassword"> -->
+    <!-- <input formControlName="phone" type="tel" placeholder="Phone"> -->
+    <!-- <app-button [text]="'Sign Upc+hamada'" (clickEmitter)="register()"></app-button> -->
+<!-- </form> -->
+
+<div class=" flex justify-content-center align-items-center h-full flex-column">
+
+    <form class="flex flex-column gap-4 w-6" [formGroup]="verifyForm" (ngSubmit)="verifyCode()">
+        <h3>Verify Code</h3>
+        <input 
+        formControlName="resetCode"
+        type="text" 
+        pInputText 
+        placeholder="Enter a code"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+
+
+        <p class="text-center">Didn't receive a code ? <a href="/" > Resend</a></p>
+
+        <!-- <p-password [toggleMask]="true" /> -->
+
+
+        @if(errorMsg){
+            <p class="bg-red-100 border-round text-center py-1">{{errorMsg}}</p>
+        }
+        @if(successMsg){
+            <p class="bg-green-100 border-round text-center py-1">{{successMsg}}</p>
+        }
+
+
+        <app-button classes="btn3 my-3" [text]="'verify'" [disCondition]="verifyForm.invalid" ></app-button>
+        <!-- <input formControlName="password"  type="password" placeholder="Password"> -->
+        <!-- <button class="btn3 cursor-pointer	">Sign in</button> -->
+    </form>
+
+
+
+</div>

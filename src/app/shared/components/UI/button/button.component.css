@@ -1,0 +1,7 @@
+.btn-main {
+    background-color: var(--main-color);
+}
+
+.disabled-button {
+    background-color: #4461f24b;
+}

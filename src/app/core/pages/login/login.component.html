@@ -1,0 +1,48 @@
+<div class=" flex justify-content-center align-items-center h-full flex-column">
+
+    <form class="flex flex-column gap-4 w-6" [formGroup]="signInForm" (ngSubmit)="signIn()">
+        <h3>Sign in</h3>
+        <input 
+        formControlName="email"
+        type="email" 
+        pInputText 
+        placeholder="Enter Email"
+        variant="filled" 
+        style="padding: 10px;"/>
+
+
+        <input 
+        formControlName="password"
+        type="password" 
+        pInputText 
+        placeholder="Password"
+        variant="filled" 
+        style="padding: 10px;" />
+
+        <a href="/" >Recover Password ?</a>
+
+        <!-- <p-password [toggleMask]="true" /> -->
+
+        @if(signInForm.get("password")?.touched){
+            @if(signInForm.get("password")?.getError("required")){
+                <p class="bg-red-100 border-round text-center py-1">Password is required</p>
+            }
+            @if(signInForm.get("password")?.getError("pattern")){
+                <p class="bg-red-100 border-round text-center py-1">Password must be at least 6 characters </p>
+            }
+        }
+
+
+        @if(errorMsg){
+            <p class="bg-red-100 border-round text-center py-1">{{errorMsg}}</p>
+
+        }
+
+        <!-- <input formControlName="password"  type="password" placeholder="Password"> -->
+        <!-- <button class="btn3 cursor-pointer	">Sign in</button> -->
+        <app-button classes="btn3 my-3" [text]="'Sign in'" [disCondition]="signInForm.invalid" ></app-button>
+    </form>
+
+
+
+</div>

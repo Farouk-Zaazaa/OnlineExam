@@ -1,0 +1,31 @@
+.main-btns {
+    font-family: "Inter", sans-serif;
+    line-height: 24.2px;
+    background-color: transparent;
+    border: none;
+}
+
+.btn1 {
+    font-weight: 400;
+    font-size: 20px;
+    color :#000;
+}
+
+.btn2 {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--main-color);
+}
+.btn3 {
+    width: 129px;
+    height: 42px;
+    background-color: #fff;
+    color: var(--main-color); 
+    box-shadow: 0px 10px 30px 0px #4461F20D;
+    border-radius: 15px; 
+    border: 1px solid #E0E0E9;
+    text-decoration: none; 
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24.2px;
+}
